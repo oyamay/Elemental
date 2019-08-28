@@ -133,6 +133,20 @@ Int SampleUniform( const Int& a, const Int& b )
 }
 // TODO: BigInt version?
 
+#ifdef HYDROGEN_HAVE_SHORT
+template<>
+short SampleUniform( const short& a, const short& b )
+{
+#ifdef EL_HAVE_CXX11RANDOM
+    std::mt19937& gen = Generator();
+    std::uniform_int_distribution<short> intDist(a,b-1);
+    return intDist(gen);
+#else
+    return a + (rand() % (b-a));
+#endif
+}
+#endif
+
 #ifdef HYDROGEN_HAVE_QUADMATH
 template<>
 Quad SampleNormal( const Quad& mean, const Quad& stddev )

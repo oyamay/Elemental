@@ -203,6 +203,11 @@ MPI_ALLGATHER_PROTO(Entry<BigInt>);
 MPI_ALLGATHER_PROTO(Entry<BigFloat>);
 MPI_ALLGATHER_PROTO(Entry<Complex<BigFloat>>);
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+MPI_ALLGATHER_PROTO(short);
+MPI_ALLGATHER_PROTO(ValueInt<short>);
+MPI_ALLGATHER_PROTO(Entry<short>);
+#endif
 
 } // namespace mpi
 } // namespace El

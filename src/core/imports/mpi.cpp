@@ -2567,6 +2567,11 @@ MPI_PROTO(Entry<BigInt>)
 MPI_PROTO(Entry<BigFloat>)
 MPI_PROTO(Entry<Complex<BigFloat>>)
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+MPI_PROTO(short)
+MPI_PROTO(ValueInt<short>)
+MPI_PROTO(Entry<short>)
+#endif
 
 #define PROTO(T)                                \
     template void SparseAllToAll(               \

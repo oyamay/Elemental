@@ -176,6 +176,9 @@ option(Hydrogen_ENABLE_HALF
   "Enable the use of \"half\" library." OFF)
 # This refers to the half.sourceforge.net type "half"
 
+option(Hydrogen_ENABLE_SHORT
+  "Enable the instantiation of short matrices." OFF)
+
 option(Hydrogen_ENABLE_BFLOAT16
   "Enable the use of Intel's bfloat16 type." OFF)
 if (Hydrogen_ENABLE_BFLOAT16)
@@ -316,6 +319,10 @@ endif ()
 if (Hydrogen_ENABLE_HALF)
   find_package(HALF REQUIRED)
   set(HYDROGEN_HAVE_HALF TRUE)
+endif ()
+
+if (Hydrogen_ENABLE_SHORT)
+  set(HYDROGEN_HAVE_SHORT TRUE)
 endif ()
 
 if (Hydrogen_ENABLE_CUDA)

@@ -119,5 +119,19 @@ template void Copy(BlasInt n,
                    gpu_half_type* y, BlasInt incy );
 #endif
 
+#ifdef HYDROGEN_HAVE_SHORT
+template<> void Copy
+( BlasInt n,
+  const short* x, BlasInt incx,
+  short* y, BlasInt incy ) {
+  if(incx == 1 && incy == 1) {
+    memcpy(y, x, sizeof(short)*n);
+  } else {
+    for( BlasInt i=0; i<n; ++i )
+      y[i*incy] = x[i*incx];
+  }
+}
+#endif
+
 } // namespace blas
 } // namespace El

@@ -117,6 +117,13 @@ template void Axpy
   const Complex<BigFloat>* x, BlasInt incx,
         Complex<BigFloat>* y, BlasInt incy );
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template void Axpy
+( BlasInt n,
+  const short& alpha,
+  const short* x, BlasInt incx,
+        short* y, BlasInt incy );
+#endif
 
 void Axpy
 ( BlasInt n,

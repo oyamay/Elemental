@@ -396,6 +396,12 @@ template void Copy(
     gpu_half_type const* A, BlasInt lda,
     gpu_half_type* B, BlasInt ldb);
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template void Copy
+( char uplo, BlasInt m, BlasInt n,
+  const short* A, BlasInt lda,
+        short* B, BlasInt ldb );
+#endif
 
 #ifndef HYDROGEN_HAVE_LAPACK
 

@@ -84,6 +84,7 @@ void Gaussian
   ( AbstractDistMatrix<F>& A, Int m, Int n, F mean, Base<F> stddev );
 
 #define EL_NO_INT_PROTO
+#define EL_NO_SHORT_PROTO
 #define EL_ENABLE_DOUBLEDOUBLE
 #define EL_ENABLE_QUADDOUBLE
 #define EL_ENABLE_QUAD

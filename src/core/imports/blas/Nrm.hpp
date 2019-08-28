@@ -68,6 +68,9 @@ template cpu_half_type Nrm2( BlasInt n, const cpu_half_type* x, BlasInt incx );
 template BigFloat Nrm2( BlasInt n, const BigFloat* x, BlasInt incx );
 template BigFloat Nrm2( BlasInt n, const Complex<BigFloat>* x, BlasInt incx );
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template short Nrm2( BlasInt n, const short* x, BlasInt incx );
+#endif
 
 double Nrm2( BlasInt n, const double* x, BlasInt incx )
 { return EL_BLAS(dnrm2)( &n, x, &incx ); }

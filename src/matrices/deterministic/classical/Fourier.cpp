@@ -45,6 +45,7 @@ void Fourier( AbstractDistMatrix<Complex<Real>>& A, Int n )
   template void Fourier( AbstractDistMatrix<Complex<Real>>& A, Int n );
 
 #define EL_NO_INT_PROTO
+#define EL_NO_SHORT_PROTO
 #define EL_NO_COMPLEX_PROTO
 #define EL_ENABLE_DOUBLEDOUBLE
 #define EL_ENABLE_QUADDOUBLE

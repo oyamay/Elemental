@@ -2,27 +2,27 @@
    Copyright (c) 2009-2016, Jack Poulson
    All rights reserved.
 
-   This file is part of Elemental and is under the BSD 2-Clause License, 
-   which can be found in the LICENSE file in the root directory, or at 
+   This file is part of Elemental and is under the BSD 2-Clause License,
+   which can be found in the LICENSE file in the root directory, or at
    http://opensource.org/licenses/BSD-2-Clause
 */
 
 extern "C" {
 
 void EL_BLAS(srot)
-( const BlasInt* n, float* x, const BlasInt* incx, 
+( const BlasInt* n, float* x, const BlasInt* incx,
                     float* y, const BlasInt* incy,
   const float* c, const float* s );
 void EL_BLAS(drot)
-( const BlasInt* n, double* x, const BlasInt* incx, 
+( const BlasInt* n, double* x, const BlasInt* incx,
                     double* y, const BlasInt* incy,
   const double* c, const double* s );
 void EL_BLAS(crot)
-( const BlasInt* n, scomplex* x, const BlasInt* incx, 
+( const BlasInt* n, scomplex* x, const BlasInt* incx,
                     scomplex* y, const BlasInt* incy,
   const float* c, const scomplex* s );
 void EL_BLAS(zrot)
-( const BlasInt* n, dcomplex* x, const BlasInt* incx, 
+( const BlasInt* n, dcomplex* x, const BlasInt* incx,
                     dcomplex* y, const BlasInt* incy,
   const double* c, const dcomplex* s );
 
@@ -42,7 +42,7 @@ void Rot
     // NOTE: Temporaries are avoided since constructing a BigInt/BigFloat
     //       involves a memory allocation
     F gamma, delta;
-    for( BlasInt i=0; i<n; ++i )    
+    for( BlasInt i=0; i<n; ++i )
     {
         //gamma = c*x[i*incx] + s*y[i*incy];
         gamma = c;
@@ -114,31 +114,39 @@ template void Rot
   const BigFloat& c,
   const Complex<BigFloat>& s );
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template void Rot
+( BlasInt n,
+  short* x, BlasInt incx,
+  short* y, BlasInt incy,
+  const short& c,
+  const short& s );
+#endif
 
 void Rot
 ( BlasInt n,
-  float* x, BlasInt incx, 
+  float* x, BlasInt incx,
   float* y, BlasInt incy,
   const float& c,
   const float& s )
 { EL_BLAS(srot)( &n, x, &incx, y, &incy, &c, &s ); }
 void Rot
 ( BlasInt n,
-  double* x, BlasInt incx, 
+  double* x, BlasInt incx,
   double* y, BlasInt incy,
   const double& c,
   const double& s )
 { EL_BLAS(drot)( &n, x, &incx, y, &incy, &c, &s ); }
 void Rot
 ( BlasInt n,
-  scomplex* x, BlasInt incx, 
+  scomplex* x, BlasInt incx,
   scomplex* y, BlasInt incy,
   const float& c,
   const scomplex& s )
 { EL_BLAS(crot)( &n, x, &incx, y, &incy, &c, &s ); }
 void Rot
 ( BlasInt n,
-  dcomplex* x, BlasInt incx, 
+  dcomplex* x, BlasInt incx,
   dcomplex* y, BlasInt incy,
   const double& c,
   const dcomplex& s )
@@ -155,7 +163,7 @@ void Rot
     // NOTE: Temporaries are avoided since constructing a BigInt/BigFloat
     //       involves a memory allocation
     Complex<Real> gamma, delta;
-    for( BlasInt i=0; i<n; ++i )    
+    for( BlasInt i=0; i<n; ++i )
     {
         //gamma = c*x[i*incx] + s*y[i*incy];
         gamma = x[i*incx];

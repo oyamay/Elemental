@@ -2,8 +2,8 @@
    Copyright (c) 2009-2016, Jack Poulson
    All rights reserved.
 
-   This file is part of Elemental and is under the BSD 2-Clause License, 
-   which can be found in the LICENSE file in the root directory, or at 
+   This file is part of Elemental and is under the BSD 2-Clause License,
+   which can be found in the LICENSE file in the root directory, or at
    http://opensource.org/licenses/BSD-2-Clause
 */
 #include <El-lite.hpp>
@@ -12,7 +12,7 @@
 
 namespace El {
 
-template<typename F1,typename F2> 
+template<typename F1,typename F2>
 void CauchyLike
 ( Matrix<F1>& A,
   const vector<F2>& r, const vector<F2>& s,
@@ -27,7 +27,7 @@ void CauchyLike
         LogicError("y vector was the wrong length");
     A.Resize( m, n );
 
-    auto cauchyFill = 
+    auto cauchyFill =
       [&]( Int i, Int j ) -> F1
       {
         EL_DEBUG_ONLY(
@@ -45,7 +45,7 @@ void CauchyLike
 template<typename F1,typename F2>
 void CauchyLike
 ( AbstractDistMatrix<F1>& A,
-  const vector<F2>& r, const vector<F2>& s, 
+  const vector<F2>& r, const vector<F2>& s,
   const vector<F2>& x, const vector<F2>& y )
 {
     EL_DEBUG_CSE
@@ -92,6 +92,7 @@ void CauchyLike
   PROTO_TYPES(F,F)
 
 #define EL_NO_INT_PROTO
+#define EL_NO_SHORT_PROTO
 #define EL_ENABLE_DOUBLEDOUBLE
 #define EL_ENABLE_QUADDOUBLE
 #define EL_ENABLE_QUAD

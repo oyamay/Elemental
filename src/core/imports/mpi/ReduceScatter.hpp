@@ -334,6 +334,11 @@ MPI_REDUCESCATTER_PROTO(Entry<BigInt>);
 MPI_REDUCESCATTER_PROTO(Entry<BigFloat>);
 MPI_REDUCESCATTER_PROTO(Entry<Complex<BigFloat>>);
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+MPI_REDUCESCATTER_PROTO(short);
+MPI_REDUCESCATTER_PROTO(ValueInt<short>);
+MPI_REDUCESCATTER_PROTO(Entry<short>);
+#endif
 
 }// namespace mpi
 }// namespace El

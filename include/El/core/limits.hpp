@@ -79,6 +79,11 @@ inline Int NumMantissaBits<BigInt>( const BigInt& alpha )
 { return alpha.NumBits(); }
 #endif
 
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct MantissaBits<short>
+    : std::integral_constant<unsigned, 8*sizeof(short)-1> {};
+#endif
+
 template<typename Real1,typename Real2>
 struct MantissaIsLonger
 { static const bool value =

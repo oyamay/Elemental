@@ -182,6 +182,7 @@ Base<Field> SymmetricEntrywiseNorm
   ( UpperOrLower uplo, const AbstractDistMatrix<Field>& A, Base<Field> p );
 
 #define EL_NO_INT_PROTO
+#define EL_NO_SHORT_PROTO
 #define EL_ENABLE_DOUBLEDOUBLE
 #define EL_ENABLE_QUADDOUBLE
 #define EL_ENABLE_QUAD

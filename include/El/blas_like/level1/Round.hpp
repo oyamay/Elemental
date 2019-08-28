@@ -58,6 +58,16 @@ inline void Round( Matrix<BigInt>& /*A*/ )
 #endif
 #endif
 
+#ifdef HYDROGEN_HAVE_SHORT
+template<>
+inline void Round( Matrix<short>& /*A*/ )
+{ }
+#ifdef EL_INSTANTIATE_BLAS_LEVEL1
+#define PROTO_SHORT
+#define EL_NO_SHORT_PROTO
+#endif
+#endif
+
 template<typename T>
 void Round( AbstractDistMatrix<T>& A )
 { Round( A.Matrix() ); }

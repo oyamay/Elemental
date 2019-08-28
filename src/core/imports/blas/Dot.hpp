@@ -105,6 +105,12 @@ template Complex<BigFloat> Dot
   const Complex<BigFloat>* x, BlasInt incx,
   const Complex<BigFloat>* y, BlasInt incy );
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template short Dot
+( BlasInt n,
+  const short* x, BlasInt incx,
+  const short* y, BlasInt incy );
+#endif
 
 // NOTE: I am under the impression that it is generally unsafe to return
 //       anything except a double-precision float to C from Fortran

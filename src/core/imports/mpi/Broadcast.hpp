@@ -183,6 +183,11 @@ MPI_BROADCAST_PROTO(Entry<BigInt>);
 MPI_BROADCAST_PROTO(Entry<BigFloat>);
 MPI_BROADCAST_PROTO(Entry<Complex<BigFloat>>);
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+MPI_BROADCAST_PROTO(short);
+MPI_BROADCAST_PROTO(ValueInt<short>);
+MPI_BROADCAST_PROTO(Entry<short>);
+#endif
 
 }// namespace mpi
 }// namespace El

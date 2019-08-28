@@ -365,6 +365,16 @@ template void Gemm
   const Complex<BigFloat>& beta,
         Complex<BigFloat>* C, BlasInt CLDim );
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template void Gemm
+( char transA, char transB,
+  BlasInt m, BlasInt n, BlasInt k,
+  const short& alpha,
+  const short* A, BlasInt ALDim,
+  const short* B, BlasInt BLDim,
+  const short& beta,
+        short* C, BlasInt CLDim );
+#endif
 
 void Gemm
 ( char transA, char transB,

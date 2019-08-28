@@ -151,6 +151,9 @@ struct QuadDouble;
 class BigInt;
 class BigFloat;
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+typedef short Short;
+#endif
 template<typename Real>
 class Complex;
 
@@ -199,6 +202,9 @@ template<> struct IsScalar<Quad> : std::true_type {};
 template<> struct IsScalar<BigInt> : std::true_type {};
 template<> struct IsScalar<BigFloat> : std::true_type {};
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsScalar<short> : std::true_type {};
+#endif
 template<typename T> struct IsScalar<Complex<T>> : IsScalar<T> {};
 
 // For querying whether an element's type is a field
@@ -224,6 +230,9 @@ template<> struct IsField<Quad> : std::true_type {};
 #ifdef HYDROGEN_HAVE_MPC
 template<> struct IsField<BigFloat> : std::true_type {};
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsField<short> : std::true_type {};
+#endif
 template<typename T> struct IsField<Complex<T>> : IsField<T> {};
 
 // For querying whether an element's type is supported by the STL's math
@@ -246,6 +255,9 @@ template <> struct IsStdScalar<cpu_half_type> : std::true_type {};
 #ifdef HYDROGEN_HAVE_QUADMATH
 template<> struct IsStdScalar<Quad> : std::true_type {};
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsStdScalar<short> : std::true_type {};
+#endif
 template<typename T> struct IsStdScalar<Complex<T>> : IsStdScalar<T> {};
 
 // For querying whether an element's type is a field supported by STL
@@ -260,6 +272,9 @@ template <> struct IsStdField<cpu_half_type> : std::true_type {};
 #endif
 #ifdef HYDROGEN_HAVE_QUADMATH
 template<> struct IsStdField<Quad> : std::true_type {};
+#endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsStdField<short> : std::true_type {};
 #endif
 template<typename T> struct IsStdField<Complex<T>> : IsStdField<T> {};
 

@@ -54,6 +54,9 @@ template<> std::string TypeName<Quad>();
 template<> std::string TypeName<BigInt>();
 template<> std::string TypeName<BigFloat>();
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> std::string TypeName<short>();
+#endif
 template<typename Field,
          typename=EnableIf<IsComplex<Field>>,
          typename=void>
@@ -68,6 +71,10 @@ template<> struct IsBlasScalar<float>
     : std::true_type {};
 template<> struct IsBlasScalar<double>
     : std::true_type {};
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsBlasScalar<short>
+    : std::true_type {};
+#endif
 template<> struct IsBlasScalar<Complex<float>>
     : std::true_type {};
 template<> struct IsBlasScalar<Complex<double>>
@@ -107,6 +114,10 @@ template<> struct IsPacked<QuadDouble>
 #endif
 #ifdef HYDROGEN_HAVE_QUADMATH
 template<> struct IsPacked<Quad>
+    : std::true_type {};
+#endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsPacked<short>
     : std::true_type {};
 #endif
 template<typename T> struct IsPacked<Complex<T>>
@@ -212,6 +223,9 @@ template<> struct IsData<Quad> : std::true_type {};
 #ifdef HYDROGEN_HAVE_MPC
 template<> struct IsData<BigInt> : std::true_type {};
 template<> struct IsData<BigFloat> : std::true_type {};
+#endif
+#ifdef HYDROGEN_HAVE_SHORT
+template<> struct IsData<short> : std::true_type {};
 #endif
 template<typename T> struct IsData<Complex<T>> : IsData<T> {};
 
@@ -581,6 +595,14 @@ void Pow
 ( const BigFloat& alpha, const long long int& beta, BigFloat& gamma );
 void Pow
 ( const BigFloat& alpha, const BigInt& beta, BigFloat& gamma );
+#endif
+
+#ifdef HYDROGEN_HAVE_SHORT
+short Pow( const short& alpha, const short& beta );
+Int Pow( const short& alpha, const Int& beta );
+Int Pow( const Int& alpha, const short& beta );
+int Pow( const short& alpha, const int& beta );
+int Pow( const int& alpha, const short& beta );
 #endif
 
 template<typename Field,

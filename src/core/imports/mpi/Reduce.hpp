@@ -387,6 +387,11 @@ MPI_REDUCE_PROTO(Entry<BigInt>);
 MPI_REDUCE_PROTO(Entry<BigFloat>);
 MPI_REDUCE_PROTO(Entry<Complex<BigFloat>>);
 #endif
+#ifdef HYDROGEN_HAVE_SHORT
+MPI_REDUCE_PROTO(short);
+MPI_REDUCE_PROTO(ValueInt<short>);
+MPI_REDUCE_PROTO(Entry<short>);
+#endif
 
 }// namespace mpi
 }// namespace El
