@@ -76,6 +76,7 @@
 #cmakedefine EL_HAVE_QUADMATH
 #cmakedefine EL_HAVE_QD
 #cmakedefine EL_HAVE_MPC
+#cmakedefine EL_HAVE_SHORT
 #cmakedefine EL_HAVE_MKL
 #cmakedefine EL_HAVE_MKL_GEMMT
 #cmakedefine EL_DISABLE_MKL_CSRMV

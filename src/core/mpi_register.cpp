@@ -86,7 +86,7 @@ template<typename T> function<T(const T&,const T&)> Types<T>::userFunc;
 template<typename T> function<T(const T&,const T&)> Types<T>::userCommFunc;
 
 template struct Types<byte>;
-#ifdef HYDROGEN_HAVE_SHORT
+#ifndef HYDROGEN_HAVE_SHORT
 template struct Types<short>; // Avoid conflict with Short
 #endif
 template struct Types<unsigned>;

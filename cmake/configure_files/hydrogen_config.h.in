@@ -19,6 +19,7 @@
 #cmakedefine HYDROGEN_HAVE_QUADMATH
 #cmakedefine HYDROGEN_HAVE_QD
 #cmakedefine HYDROGEN_HAVE_MPC
+#cmakedefine HYDROGEN_HAVE_SHORT
 
 #cmakedefine HYDROGEN_HAVE_LAPACK
 
