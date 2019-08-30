@@ -293,6 +293,13 @@ void Initialize( int& argc, char**& argv )
     }
 #endif
 
+#ifdef HYDROGEN_HAVE_SHORT
+    {
+        mpi::Types<short>::type = MPI_SHORT;
+        mpi::Types<short>::createdType = false;
+    }
+#endif
+
 #ifdef HYDROGEN_HAVE_CUDA
     cublas::Initialize();
 #endif

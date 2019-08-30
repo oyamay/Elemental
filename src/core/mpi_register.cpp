@@ -1039,6 +1039,14 @@ void CreateCustom() EL_NO_RELEASE_EXCEPT
     CreateMaxLocPairOp<BigInt>();
     CreateMinLocPairOp<BigInt>();
 #endif
+
+#ifdef HYDROGEN_HAVE_SHORT
+    // short
+    // ======
+    CreateValueIntType<short>();
+    CreateEntryType<short>();
+#endif
+
 }
 
 template<typename T>
