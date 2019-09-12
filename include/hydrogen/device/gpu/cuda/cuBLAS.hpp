@@ -139,6 +139,9 @@ struct NativeTypeT;
 // Built-in types are their own native types
 template <> struct NativeTypeT<float> { using type = float; };
 template <> struct NativeTypeT<double> { using type = double; };
+#ifdef HYDROGEN_HAVE_SHORT
+template <> struct NativeTypeT<short> { using type = short; };
+#endif // HYDROGEN_HAVE_SHORT
 template <>
 struct NativeTypeT<cuComplex> { using type = cuComplex; };
 template <>
@@ -194,6 +197,10 @@ template <BLAS_Op op>
 struct IsSupportedType_Base<float, op> : std::true_type {};
 template <BLAS_Op op>
 struct IsSupportedType_Base<double, op> : std::true_type {};
+#ifdef HYDROGEN_HAVE_SHORT
+template <BLAS_Op op>
+struct IsSupportedType_Base<short, op> : std::true_type {};
+#endif // HYDROGEN_HAVE_SHORT
 template <BLAS_Op op>
 struct IsSupportedType_Base<cuComplex, op> : std::true_type {};
 template <BLAS_Op op>
@@ -320,11 +327,17 @@ ADD_AXPY_DECL(__half);
 #endif // HYDROGEN_GPU_USE_FP16
 ADD_AXPY_DECL(float);
 ADD_AXPY_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_AXPY_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_AXPY_DECL(cuComplex);
 ADD_AXPY_DECL(cuDoubleComplex);
 
 ADD_COPY_DECL(float);
 ADD_COPY_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_COPY_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_COPY_DECL(cuComplex);
 ADD_COPY_DECL(cuDoubleComplex);
 
@@ -333,6 +346,9 @@ ADD_SCALE_DECL(__half);
 #endif // HYDROGEN_GPU_USE_FP16
 ADD_SCALE_DECL(float);
 ADD_SCALE_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_SCALE_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_SCALE_DECL(cuComplex);
 ADD_SCALE_DECL(cuDoubleComplex);
 
@@ -352,6 +368,9 @@ ADD_SCALE_DECL(cuDoubleComplex);
 
 ADD_GEMV_DECL(float);
 ADD_GEMV_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_GEMV_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_GEMV_DECL(cuComplex);
 ADD_GEMV_DECL(cuDoubleComplex);
 
@@ -376,6 +395,9 @@ ADD_GEMM_DECL(__half);
 #endif // HYDROGEN_GPU_USE_FP16
 ADD_GEMM_DECL(float);
 ADD_GEMM_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_GEMM_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_GEMM_DECL(cuComplex);
 ADD_GEMM_DECL(cuDoubleComplex);
 
@@ -405,11 +427,17 @@ ADD_GEMM_DECL(cuDoubleComplex);
 
 ADD_GEAM_DECL(float);
 ADD_GEAM_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_GEAM_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_GEAM_DECL(cuComplex);
 ADD_GEAM_DECL(cuDoubleComplex);
 
 ADD_DGMM_DECL(float);
 ADD_DGMM_DECL(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ADD_DGMM_DECL(short);
+#endif // HYDROGEN_HAVE_SHORT
 ADD_DGMM_DECL(cuComplex);
 ADD_DGMM_DECL(cuDoubleComplex);
 

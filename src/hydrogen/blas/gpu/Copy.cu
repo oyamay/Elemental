@@ -82,7 +82,7 @@ void Copy_GPU_impl(
 {
     if (num_entries <= TypeTraits<SizeT>::Zero())
         return;
-    
+
 #ifdef HYDROGEN_DO_BOUNDS_CHECKING
     // The kernel parameters are __restrict__-ed. This helps ensure
     // that's not a lie.
@@ -203,6 +203,38 @@ ETI(double, gpu_half_type, long);
 ETI(double, gpu_half_type, long long);
 ETI(double, gpu_half_type, unsigned);
 ETI(double, gpu_half_type, size_t);
+#endif
+
+#ifdef HYDROGEN_HAVE_SHORT
+ETI(short, short, int);
+ETI(short, short, long);
+ETI(short, short, long long);
+ETI(short, short, unsigned);
+ETI(short, short, size_t);
+
+ETI(short, float, int);
+ETI(short, float, long);
+ETI(short, float, long long);
+ETI(short, float, unsigned);
+ETI(short, float, size_t);
+
+ETI(float, short, int);
+ETI(float, short, long);
+ETI(float, short, long long);
+ETI(float, short, unsigned);
+ETI(float, short, size_t);
+
+ETI(short, double, int);
+ETI(short, double, long);
+ETI(short, double, long long);
+ETI(short, double, unsigned);
+ETI(short, double, size_t);
+
+ETI(double, short, int);
+ETI(double, short, long);
+ETI(double, short, long long);
+ETI(double, short, unsigned);
+ETI(double, short, size_t);
 #endif
 
 }// namespace hydrogen

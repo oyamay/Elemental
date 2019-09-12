@@ -115,7 +115,7 @@ void Axpy_GPU_impl(
     {
         return;
     }
-    
+
     constexpr int TILE_SIZE = 32;
     constexpr int BLK_COLS = 8;
 
@@ -203,5 +203,13 @@ ETI(double, long);
 ETI(double, long long);
 ETI(double, unsigned);
 ETI(double, size_t);
+
+#ifdef HYDROGEN_HAVE_SHORT
+ETI(short, int);
+ETI(short, long);
+ETI(short, long long);
+ETI(short, unsigned);
+ETI(short, size_t);
+#endif
 
 }// namespace hydrogen

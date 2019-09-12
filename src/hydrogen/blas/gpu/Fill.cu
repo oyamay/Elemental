@@ -109,5 +109,8 @@ ETI(gpu_half_type);
 #endif
 ETI(float);
 ETI(double);
+#ifdef HYDROGEN_HAVE_SHORT
+ETI(short);
+#endif
 
 }// namespace hydrogen

@@ -541,6 +541,17 @@ AbstractDistMatrix<double>::Instantiate
     return Instantiate_<double>(grid, root, colDist, rowDist, wrap, dev);
 }
 
+#ifdef HYDROGEN_HAVE_SHORT
+template<>
+AbstractDistMatrix<short>*
+AbstractDistMatrix<short>::Instantiate
+(const El::Grid& grid, int root,
+ Dist colDist, Dist rowDist, DistWrap wrap, Device dev)
+{
+    return Instantiate_<short>(grid, root, colDist, rowDist, wrap, dev);
+}
+#endif
+
 template<typename T>
 AbstractDistMatrix<T>*
 AbstractDistMatrix<T>::Instantiate(const El::DistData& data)

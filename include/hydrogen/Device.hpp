@@ -79,6 +79,9 @@ struct IsComputeType<gpu_half_type, Device::GPU> : std::true_type {};
 #endif
 template <> struct IsComputeType<float, Device::GPU> : std::true_type {};
 template <> struct IsComputeType<double, Device::GPU> : std::true_type {};
+#ifdef HYDROGEN_HAVE_SHORT
+template <> struct IsComputeType<short, Device::GPU> : std::true_type {};
+#endif // HYDROGEN_HAVE_SHORT
 template <>
 struct IsComputeType<std::complex<float>, Device::GPU> : std::true_type {};
 template <>
@@ -117,6 +120,9 @@ struct IsStorageType<gpu_half_type, Device::GPU> : std::true_type {};
 #endif
 template <> struct IsStorageType<float, Device::GPU> : std::true_type {};
 template <> struct IsStorageType<double, Device::GPU> : std::true_type {};
+#ifdef HYDROGEN_HAVE_SHORT
+template <> struct IsStorageType<short, Device::GPU> : std::true_type {};
+#endif // HYDROGEN_HAVE_SHORT
 template <>
 struct IsStorageType<std::complex<float>, Device::GPU> : std::true_type {};
 template <>

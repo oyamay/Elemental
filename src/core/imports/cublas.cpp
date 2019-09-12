@@ -227,6 +227,74 @@ ADD_DGMM_IMPL(double, D)
 ADD_DGMM_IMPL(cuComplex, C)
 ADD_DGMM_IMPL(cuDoubleComplex, Z)
 
+#ifdef HYDROGEN_HAVE_SHORT
+void Axpy(cublasHandle_t handle,
+          int n, short const& alpha,
+          short const* X, int incx,
+          short* Y, int incy)
+{
+  throw std::runtime_error("Not implemented");
+}
+void Copy(cublasHandle_t handle,
+          int n, short const* X, int incx,
+          short* Y, int incy)
+{
+}
+void Scale(cublasHandle_t handle,
+           int n, short const& alpha,
+           short* X, int incx)
+{
+  throw std::runtime_error("Not implemented");
+}
+void Gemv(
+    cublasHandle_t handle,
+    cublasOperation_t transpA, int m, int n,
+    short const& alpha,
+    short const* A, int lda,
+    short const* B, int ldb,
+    short const& beta,
+    short* C, int ldc)
+{
+  throw std::runtime_error("Not implemented");
+}
+void Gemm(
+    cublasHandle_t handle,
+    cublasOperation_t transpA,
+    cublasOperation_t transpB,
+    int m, int n, int k,
+    short const& alpha,
+    short const* A, int lda,
+    short const* B, int ldb,
+    short const& beta,
+    short* C, int ldc)
+{
+  throw std::runtime_error("Not implemented");
+}
+void Geam(
+    cublasHandle_t handle,
+    cublasOperation_t transpA,
+    cublasOperation_t transpB,
+    int m, int n,
+    short const& alpha,
+    short const* A, int lda,
+    short const& beta,
+    short const* B, int ldb,
+    short* C, int ldc)
+{
+  throw std::runtime_error("Not implemented");
+}
+void Dgmm(
+    cublasHandle_t handle,
+    cublasSideMode_t side,
+    int m, int n,
+    short const* A, int lda,
+    short const* X, int incx,
+    short* C, int ldc)
+{
+  throw std::runtime_error("Not implemented");
+}
+#endif // HYDROGEN_HAVE_SHORT
+
 //
 // "STATIC" UNIT TEST
 //

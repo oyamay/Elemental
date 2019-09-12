@@ -247,6 +247,28 @@ template DistMatrix<double,COLDIST,ROWDIST,ELEMENT,Device::GPU>::DistMatrix(
 template DistMatrix<double,COLDIST,ROWDIST,ELEMENT,Device::GPU>&
 DistMatrix<double,COLDIST,ROWDIST,ELEMENT,Device::GPU>::operator=(
     const DistMatrix<double,COLDIST,ROWDIST,ELEMENT,Device::CPU>&);
+
+#ifdef HYDROGEN_HAVE_SHORT
+template class DistMatrix<short,COLDIST,ROWDIST,ELEMENT,Device::GPU>;
+INSTGPU(short,MC,  MR  );
+INSTGPU(short,MC,  STAR);
+INSTGPU(short,MD,  STAR);
+INSTGPU(short,MR,  MC  );
+INSTGPU(short,MR,  STAR);
+INSTGPU(short,STAR,MC  );
+INSTGPU(short,STAR,MD  );
+INSTGPU(short,STAR,MR  );
+INSTGPU(short,STAR,STAR);
+INSTGPU(short,STAR,VC  );
+INSTGPU(short,STAR,VR  );
+INSTGPU(short,VC,  STAR);
+INSTGPU(short,VR,  STAR);
+template DistMatrix<short,COLDIST,ROWDIST,ELEMENT,Device::GPU>::DistMatrix(
+    const DistMatrix<short,COLDIST,ROWDIST,ELEMENT,Device::CPU>&);
+template DistMatrix<short,COLDIST,ROWDIST,ELEMENT,Device::GPU>&
+DistMatrix<short,COLDIST,ROWDIST,ELEMENT,Device::GPU>::operator=(
+    const DistMatrix<short,COLDIST,ROWDIST,ELEMENT,Device::CPU>&);
+#endif // HYDROGEN_HAVE_SHORT
 #endif // HYDROGEN_HAVE_CUDA
 
 #define EL_ENABLE_DOUBLEDOUBLE
